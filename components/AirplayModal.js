@@ -39,7 +39,7 @@ export default function AirplayModal({
 
   const handleFileUpload = (file, setUrl, setFileName) => {
     if (file) {
-      setFileName(` ${file.name.slice(0, 35)}`)
+      setFileName(`📁 ${file.name.slice(0, 35)}`)
       const reader = new FileReader()
       reader.onload = (ev) => setUrl(ev.target.result)
       reader.readAsDataURL(file)
@@ -60,23 +60,22 @@ export default function AirplayModal({
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 bg-black/68 backdrop-blur-[36px] flex items-center justify-center z-[2000] visible opacity-100 transition-all">
+    <div className="fixed inset-0 bg-black/68 backdrop-blur-[36px] flex items-center justify-center z-[2000]">
       <div className="bg-[rgba(30,30,38,0.75)] backdrop-blur-[48px] rounded-[52px] w-[90%] max-w-[420px] max-h-[85vh] overflow-y-auto p-[26px_22px] border border-white/35 shadow-[0_32px_56px_-16px_black]">
         <h3 className="text-white font-semibold text-xl text-center mb-4 tracking-tight">
-           Customize Player 
+          🎧 Customize Player 🎨
         </h3>
         
-        {/* Background Section */}
         <div className="mb-3">
           <div className="text-white/80 text-[11px] flex justify-between items-center">
-            <span> Background (Image/GIF/Video)</span>
+            <span>✨ Background (Image/GIF/Video)</span>
             <span className="text-[9px]">*Video/GIF auto-loop</span>
           </div>
           <div 
             onClick={() => bgFileInputRef.current?.click()}
             className="bg-white/12 rounded-[44px] p-[10px_0] text-center text-[13px] font-medium cursor-pointer transition-all active:scale-97 border border-white/30 mt-1"
           >
-             Upload Background
+            📤 Upload Background
           </div>
           <input 
             ref={bgFileInputRef}
@@ -96,14 +95,13 @@ export default function AirplayModal({
           placeholder="URL Background (jpg/png/gif/mp4)"
         />
         
-        {/* Cover Section */}
         <div className="mt-3 mb-3">
-          <div className="text-white/80 text-[11px]"> Cover Lagu (Gambar/GIF/Video)</div>
+          <div className="text-white/80 text-[11px]">🎨 Cover Lagu (Gambar/GIF/Video)</div>
           <div 
             onClick={() => coverFileInputRef.current?.click()}
             className="bg-white/12 rounded-[44px] p-[10px_0] text-center text-[13px] font-medium cursor-pointer transition-all active:scale-97 border border-white/30 mt-1"
           >
-             Upload Cover
+            📤 Upload Cover
           </div>
           <input 
             ref={coverFileInputRef}
@@ -123,13 +121,12 @@ export default function AirplayModal({
           placeholder="URL Cover (jpg/png/gif/mp4/webm)"
         />
         
-        {/* Music Upload */}
         <div className="mt-3 mb-3">
           <div 
             onClick={() => musicFileInputRef.current?.click()}
             className="bg-white/12 rounded-[44px] p-[10px_0] text-center text-[13px] font-medium cursor-pointer transition-all active:scale-97 border border-white/30"
           >
-             Upload Musik MP3
+            🎵 Upload Musik MP3
           </div>
           <input 
             ref={musicFileInputRef}
@@ -170,7 +167,7 @@ export default function AirplayModal({
             onClick={handleSave}
             className="flex-1 bg-white/20 backdrop-blur border border-white/30 rounded-full py-3 text-white text-sm font-semibold transition-all active:scale-96"
           >
-             Simpan & Terapkan
+            ✅ Simpan & Terapkan
           </button>
           <button 
             onClick={onClose}
@@ -181,9 +178,9 @@ export default function AirplayModal({
         </div>
         
         <p className="text-[10px] text-white/30 text-center mt-4">
-           GIF/Video akan otomatis looping & autoplay (muted)
+          ⚡ GIF/Video akan otomatis looping & autoplay (muted)
         </p>
       </div>
     </div>
   )
-    }
+              }
