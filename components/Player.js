@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
 import WaveAnimation from './WaveAnimation'
+import AirplayModal from './AirplayModal'
 
 export default function Player() {
   const [isPlaying, setIsPlaying] = useState(false)
@@ -8,7 +9,7 @@ export default function Player() {
   const [volume, setVolume] = useState(0.65)
   const [track, setTrack] = useState({
     title: "dj sakit nya tu disini",
-    artist: "EsaaRMX  Bassline",
+    artist: "EsaaRMX 🎧 Bassline",
     img: "https://img.sanishtech.com/u/0f93024cf982f23a474a91649cba47cf.png",
     src: "https://www.image2url.com/r2/default/audio/1777204220968-e8bf0838-c886-430c-8e4a-f0b5cb04aab6.mp3"
   })
@@ -55,10 +56,6 @@ export default function Player() {
     const isVideo = isVideoOrGifUrl(url)
     setBgMedia({ url, isVideo })
   }, [isVideoOrGifUrl])
-
-  const updatePlayPauseUI = useCallback(() => {
-    // UI handled by state
-  }, [])
 
   const loadTrack = useCallback((newTrack, autoPlay = false) => {
     if (audioRef.current) {
@@ -147,7 +144,7 @@ export default function Player() {
     const wasPlaying = isPlaying
     loadTrack(newTrack, wasPlaying)
     
-    setToastMessage(' Video/GIF Background & Cover Aktif (auto-loop)')
+    setToastMessage('✅ Video/GIF Background & Cover Aktif (auto-loop)')
     setShowToast(true)
     setTimeout(() => setShowToast(false), 2500)
   }, [applyBackgroundMedia, isPlaying, loadTrack])
@@ -264,7 +261,7 @@ export default function Player() {
             onClick={handlePrev}
             className="w-14 h-14 inline-block transition-all duration-120 active:scale-88 active:opacity-85 cursor-pointer filter drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]"
             style={{
-              backgroundImage: "url('https://img.sanishtech.com/u/468bc35f6e883e9dae1879ecc8dcecb2.png')",
+              backgroundImage: "url('https://img.sanishtech.com/u/902c93ffc819575f7da3ad29058049d1.png')",
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
               backgroundPosition: 'center',
@@ -277,8 +274,8 @@ export default function Player() {
               className="w-[68px] h-[68px] transition-all duration-120 active:scale-88 active:opacity-85 filter drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]"
               style={{
                 backgroundImage: isPlaying 
-                  ? "url('https://img.sanishtech.com/u/316be8125497b1f9f02c4f2c328275de.png')"
-                  : "url('https://img.sanishtech.com/u/014c2b314eef747624f477bda366fc7a.png')",
+                  ? "url('https://img.sanishtech.com/u/598c933be0e72814c22b9da473f76a58.png')"
+                  : "url('https://img.sanishtech.com/u/6cf15ebd49582e939d12444175edc128.png')",
                 backgroundSize: 'contain',
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: 'center',
@@ -290,7 +287,7 @@ export default function Player() {
             onClick={handleNext}
             className="w-14 h-14 inline-block transition-all duration-120 active:scale-88 active:opacity-85 cursor-pointer filter drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]"
             style={{
-              backgroundImage: "url('https://img.sanishtech.com/u/468bc35f6e883e9dae1879ecc8dcecb2.png')",
+              backgroundImage: "url('https://img.sanishtech.com/u/902c93ffc819575f7da3ad29058049d1.png')",
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
               backgroundPosition: 'center',
@@ -352,16 +349,6 @@ export default function Player() {
         initialTitle={track.title}
         initialArtist={track.artist}
       />
-      
-      <style jsx global>{`
-        @keyframes marqueeSmooth {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-32%); }
-        }
-        .animate-marquee {
-          animation: marqueeSmooth 10s linear infinite;
-        }
-      `}</style>
     </div>
   )
 }
